@@ -10,8 +10,12 @@ def main():
     app = QApplication(sys.argv)
 
     layoutGrid = QGridLayout()
-    calendar = MyCalendar.MyCalendar()
-    calendar.displayToQTGrid(layoutGrid, 1, 1)
+    layoutGrid.setHorizontalSpacing(0)
+    layoutGrid.setVerticalSpacing(0)
+    layoutGrid.setContentsMargins(0, 0, 0, 0)
+
+    calendar = MyCalendar.MyCalendar(layoutGrid, 1, 1)
+    calendar.displayToQTGrid()
 
     window = QWidget()
     window.setLayout(layoutGrid)
@@ -19,7 +23,6 @@ def main():
 
     window.setWindowTitle("Python Calendar")
     window.show()
-
 
     sys.exit(app.exec_())
 
